@@ -68,7 +68,3 @@ resource "aws_security_group" "my_web_server_security_group" {
     Project = "Terraform Lesson 2"
   }
 }
-
-output "web_server_url" {
-  value = "http://${aws_instance.my_web_server.public_ip}"
-}
