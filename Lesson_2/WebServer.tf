@@ -4,13 +4,7 @@ resource "aws_instance" "my_web_server" {
   ami           = "ami-0303e2e4a29f041a3"
   instance_type = "t3.micro"
   vpc_security_group_ids = [aws_security_group.my_web_server_security_group.id]
-  user_data = <<EOF
-#!/bin/bash
-sudo apt-get update
-sudo apt-get install -y nginx
-sudo systemctl start nginx
-sudo systemctl enable nginx
-EOF
+  user_data = file("user-data.sh")
 
   tags = {
     Name = "my_ubuntu_instance"
