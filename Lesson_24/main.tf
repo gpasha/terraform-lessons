@@ -37,3 +37,7 @@ resource "aws_instance" "node3" {
 # terraform apply => will see mistake (node3 depends on node1 and node2)
 # terraform taint aws_instance.node1
 # terraform apply
+
+# OR
+
+# terraform apply -replace aws_instance.node1
